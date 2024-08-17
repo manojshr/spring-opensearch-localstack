@@ -1,0 +1,9 @@
+opensearch-test-domain: test-domain
+
+opensearch:
+  host: localhost:4566/opensearch/${opensearch.region}/${opensearch-test-domain}
+  region: us-east-1
+
+aws:
+  accessKeyId: test
+  secretAccessKey: test

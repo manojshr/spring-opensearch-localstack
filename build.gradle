@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.2.5'
+    id 'io.spring.dependency-management' version '1.1.4'
+}
+
+group = 'io.codlibs'
+version = '0.0.1-SNAPSHOT'
+
+java {
+    sourceCompatibility = '17'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-webflux'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spring-boot-testcontainers'
+    testImplementation 'org.opensearch:opensearch-testcontainers:2.0.1'
+    testImplementation 'io.projectreactor:reactor-test'
+    testImplementation 'org.testcontainers:junit-jupiter'
+
+    testImplementation 'org.bouncycastle:bcprov-jdk18on:1.76'
+    testImplementation 'org.bouncycastle:bcpkix-jdk18on:1.76'
+
+    // Additional Deps
+    implementation 'org.opensearch.client:opensearch-java:2.9.1'
+    implementation 'software.amazon.awssdk:netty-nio-client:2.20.94'
+    implementation 'software.amazon.awssdk:sts:2.20.94'
+}
+
+dependencyManagement {
+    imports {
+        'io.awspring.cloud:spring-cloud-aws-dependencies:3.0.1'
+    }
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}

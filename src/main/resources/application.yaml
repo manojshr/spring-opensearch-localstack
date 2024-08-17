@@ -1,0 +1,4 @@
+spring.application.name: spring-opensearch-localstack
+opensearch:
+  host: localhost:4566/opensearch/${opensearch.region}/domain-name
+  region: us-east-1
